@@ -64,11 +64,11 @@ def training_function(args):
     # set seed
     set_seed(args.seed)
     
-    WORLD_RANK = int(os.environ['RANK'])
-    
+    WORLD_RANK = int(os.environ['RANK'])    
 
     # ✍️ Create a new run in to Weights & Biases and set the project name ✍️
-    project_name = f"hf-sagemaker-flan-t5-base-{time.strftime("%Y-%m-%d-%H-%M-%S", time.localtime())}"
+    timestamp = time.strftime("%Y-%m-%d-%H-%M-%S", time.localtime())
+    project_name = f"hf-sagemaker-flan-t5-base-{timestamp}"
     job_type='Training'
     # if training_args.run_name == 'tmp':
     #     name = f"{model_args.model_name_or_path}_{training_args.learning_rate}_{training_args.warmup_steps}"
